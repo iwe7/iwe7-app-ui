@@ -1,0 +1,6 @@
+:host {
+  display: none;
+  visibility: none;
+  height: 0px;
+  width: 0px;
+}

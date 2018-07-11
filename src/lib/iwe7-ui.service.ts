@@ -20,14 +20,13 @@ export class Iwe7UiService {
     ) {
         this.routes = flattenDeep(routes);
         this.routes.map(res => {
-            if (res.loadChildren) {
+            if ('loadChildren' in res) {
                 this.routesMap.set(res.path, res.loadChildren);
             }
         });
     }
 
     load(name: string): Observable<HTMLElement> {
-        console.log(name);
         const path = this.routesMap.get(name);
         if (path) {
             return from(this.loader.load(path)).pipe(
